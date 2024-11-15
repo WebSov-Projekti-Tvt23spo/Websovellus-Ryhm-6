@@ -1,0 +1,46 @@
+.homePage .mainContainer {
+    display: grid;
+    grid-template-columns: 0.5fr 0.3fr 0.2fr;
+    width: 100% - 2px;
+    height: 100%;
+    /* border-style: solid; */
+    border-width: 2px;
+}
+
+.homePage .firstColumn, .secondColumn, .thirdColumn {
+    border-style: inherit;
+    border-width: inherit;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.homePage .firstColumn img {
+    max-width: 350px;
+    width: 100%;
+}
+
+.homePage .secondColumn {
+    justify-content: center;
+}
+
+.homePage .thirdColumn a {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.homePage figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0px;
+    width: 100%; 
+}
+
+.homePage img {
+    border-style: solid;
+    border-width: 2px;
+    max-width: 200px;
+    width: 100%;
+}

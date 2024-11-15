@@ -1,0 +1,14 @@
+.signUpPage .mainContainer {
+    display: flex;
+    flex-direction: column;    
+    align-items: center;
+    text-align: center;
+}
+
+.signUpPage input {
+    margin-bottom: 20px;
+}
+
+.signUpPage button {
+    margin-bottom: 10px;
+}
