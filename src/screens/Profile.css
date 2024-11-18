@@ -1,0 +1,32 @@
+.profilePage .mainContainer {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-areas: 
+        'figure-area aside-area'
+        'figure-area aside-area';
+
+}
+
+.profilePage figure {
+    grid-area: figure-area;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.profilePage a {
+    margin: 5px;
+}
+
+.profilePage img {
+    width: 100%;
+    max-width: 400px;
+}
+
+.profilePage aside {
+    grid-area: aside-area;
+    padding: 30px;
+}

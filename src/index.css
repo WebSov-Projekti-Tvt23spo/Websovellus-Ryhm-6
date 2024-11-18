@@ -19,3 +19,13 @@ html, body {
     margin-left: auto;
     margin-right: 20px;
 }
+
+.mainContainer {
+    padding: 10px;
+    width: 100%;
+}
+
+img {
+    border-style: solid;
+    border-width: 2px;
+}

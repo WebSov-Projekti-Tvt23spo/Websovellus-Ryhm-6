@@ -1,0 +1,45 @@
+.timetablePage .mainContainer {
+    display: grid;
+    grid-template-columns: 0.5fr 0.5fr;
+    grid-template-areas: 
+        'h1-area h1-area'
+        'figure-area calendarArea'; 
+}
+
+.timetablePage h1 {
+    grid-area: h1-area;
+    text-align: center;
+}
+
+.timetablePage figure {
+    grid-area: figure-area;
+    display: flex;
+    justify-content: center;
+}
+
+.timetablePage img {
+    width: 90%;
+    max-width: 500px;
+}
+
+.timetablePage .calendarContainer {
+    grid-area: calendarArea;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+}
+
+.timetablePage .mainContainer #calendar{
+    width: 100%;
+    max-width: 225px;
+    height: 20px;
+    margin-bottom: 10px;
+}
+
+.timetablePage .mainContainer #confirmButton {
+    width: 100%;
+    max-width: 100px;
+    height: 20px;
+}
