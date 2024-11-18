@@ -1,0 +1,52 @@
+.individualPage .mainContainer {
+    display: grid;
+    grid-template-columns: 0.3fr 0.3fr 0.4fr;
+    grid-template-areas: 
+        'a-area h-area h-area'
+        'templateImg templateImg aside-area'
+        'inputArea inputArea aside-area'
+        'bottomText bottomText aside-area';
+}
+
+.individualPage .mainContainer a {
+    grid-area: a-area;
+    display: flex;
+    align-self: center;
+}
+
+.individualPage h1 {
+    grid-area: h-area;
+}
+
+.individualPage figure {
+    grid-area: templateImg;
+    display: flex;
+    width: 100%;
+    margin-left: 0px;
+}
+
+.individualPage aside {
+    grid-area: aside-area;
+}
+
+.individualPage img {
+    width: 95%;
+    height: auto;
+    max-width: 500px;
+}
+
+.individualPage .mainContainer form {
+    grid-area: inputArea;
+    width: 100%;
+    min-height: 150px;
+}
+
+.individualPage textarea {
+    width: 90%;
+    height: 90%;
+}
+
+.individualPage #bottomText {
+    grid-area: bottomText;
+    width: 90%;
+}

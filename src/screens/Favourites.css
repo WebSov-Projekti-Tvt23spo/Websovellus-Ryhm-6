@@ -1,0 +1,37 @@
+.favouritesPage .mainContainer {
+    display: grid;
+    grid-template-columns: 0.4fr 0.2fr 0.4fr;
+    grid-template-areas: 
+        'h1-area h1-area h1-area'
+        'leftFigure leftFigure rightFigure';
+}
+
+.favouritesPage h1 {
+    grid-area: h1-area;
+    text-align: center;
+}
+
+.favouritesPage figure {
+    width: 100%;
+}
+
+.favouritesPage #leftFigure {
+    grid-area: leftFigure;
+    text-align: center;
+}
+
+.favouritesPage #rightFigure {
+    grid-area: rightFigure;
+    display: flex;
+    align-items: center;
+}
+
+.favouritesPage #leftFigure img {
+    width: 90%;
+    max-width: 500px;
+}
+
+.favouritesPage #rightFigure img {
+    width: 90%;
+    max-width: 400px;
+}
