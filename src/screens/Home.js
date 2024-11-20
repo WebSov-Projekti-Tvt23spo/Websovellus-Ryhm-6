@@ -1,4 +1,4 @@
-import HomeHeader from '../helpers/HomeHeader';
+import HomeHeader from '../helpers/Header';
 import templateImage from './assets/template_image.jpg';
 import './Home.css';
 
