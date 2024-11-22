@@ -1,8 +1,9 @@
-import React, {useState} from "react";
+import { useState } from "react";
 import axios from "axios";
 
-const searchbar = () => {
+const Searchbar = () => {
     const [query, setQuery] = useState("");
+    const [site, setSite] = useState("");
     const [results, setResults] = useState([]);
 
     const handleSearch = async (e) => {
@@ -18,7 +19,7 @@ const searchbar = () => {
     };
 
     return(
-        <div>
+        <div id="searchbar">
             <form onSubmit={handleSearch}>
                 <input
                 type="text"
@@ -36,4 +37,4 @@ const searchbar = () => {
     );
 };
 
-export default searchbar;
+export default Searchbar;
