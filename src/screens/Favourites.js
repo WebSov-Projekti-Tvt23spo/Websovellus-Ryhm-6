@@ -1,6 +1,6 @@
 import Header from "../helpers/Header";
 import templateImage from './assets/template_image.jpg';
-import './Favourites.css';
+import '../styles/Favourites.css';
 
 function Favourites() {
     return (

@@ -1,6 +1,6 @@
 import Header from "../helpers/Header";
 import templateImage from './assets/template_image.jpg';
-import './Profile.css';
+import '../styles/Profile.css';
 
 function Profile() {
     return (

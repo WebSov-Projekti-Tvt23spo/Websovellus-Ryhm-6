@@ -6,10 +6,12 @@ import './index.css'
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
 import Group from './screens/Group';
+import GroupList from './screens/GroupList';
 import Individual from './screens/Individual';
 import Favourites from './screens/Favourites';
 import Profile from './screens/Profile';
 import Timetable from './screens/Timetable';
+import CreateGroup from './screens/CreateGroup';
 
 const router = createBrowserRouter([
     {
@@ -23,6 +25,14 @@ const router = createBrowserRouter([
     {
         path: '/group',
         element: <Group />
+    },
+    {
+        path: '/groupList',
+        element: <GroupList />
+    },
+    {
+        path: '/createGroup',
+        element: <CreateGroup />
     },
     {
         path: '/individual',

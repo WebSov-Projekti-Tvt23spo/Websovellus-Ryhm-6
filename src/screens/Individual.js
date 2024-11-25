@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Header from "../helpers/Header";
 import templateImage from './assets/template_image.jpg';
-import './Individual.css';
+import '../styles/Individual.css';
 
 function Individual() {
     const [userInput, setUserInput] = useState('');
