@@ -1,4 +1,4 @@
-import Header from "../helpers/Header";
+import Header from "../components/Header";
 import templateImage from './assets/template_image.jpg';
 import './Group.css';
 

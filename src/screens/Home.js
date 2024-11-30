@@ -1,11 +1,11 @@
-import HomeHeader from '../helpers/Header';
+import Header from "../components/Header";
 import templateImage from './assets/template_image.jpg';
 import './Home.css';
 
 function Home() {
     return (
         <div className='homePage'>
-            <HomeHeader/>
+            <Header/>
             <div className='mainContainer'>
                 <div className='firstColumn'>
                     <figure>
