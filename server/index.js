@@ -1,4 +1,9 @@
 import express from 'express';
+import dotenv from 'dotenv';
+import movieRouter from './routers/movieRouter';
+import userRouter from './routers/userRouter';
+
+dotenv.config(); // adding contents of .env to process.env
 
 const port = process.env.PORT; // gets port from env file
 const app = express();
@@ -10,6 +15,7 @@ app.use(cors()); // allows testing from different origin
 */
 
 app.use('/', movieRouter);
+app.use('/user', userRouter);
 
 app.use((err,res) => { // error handling
     const statusCode = err.statusCode || 500;
