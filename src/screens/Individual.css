@@ -50,3 +50,17 @@
     grid-area: bottomText;
     width: 90%;
 }
+
+.individualPage ul{
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+}
+
+.individualPage ul li{
+    width: 2em;
+}
+
+.individualPage li.selected{
+    color: blue;
+}
