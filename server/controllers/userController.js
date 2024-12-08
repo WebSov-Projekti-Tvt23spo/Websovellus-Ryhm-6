@@ -1,4 +1,4 @@
-import { insertUser, delUser, selectUserByEmail } from "../models/user";
+import { insertUser, delUser, selectUserByEmail } from "../models/user.js";
 import { hash, compare } from 'bcrypt';
 import jwt from 'jsonwebtoken';
 

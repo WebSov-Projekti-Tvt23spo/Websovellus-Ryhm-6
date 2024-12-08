@@ -1,4 +1,4 @@
-import { selectAllMovies, insertMovie, delMovie } from "../models/movie";
+import { selectAllMovies, insertMovie, delMovie } from "../models/movie.js";
 
 const getMovies = async (req,res,next) => {
     try {

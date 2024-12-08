@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Header from "../components/Header";
 import templateImage from './assets/template_image.jpg';
-import './Individual.css';
+import '../styles/Individual.css';
 import ReactPaginate from 'react-paginate';
 
 

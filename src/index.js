@@ -5,7 +5,9 @@ import Home from './screens/Home';
 import './index.css'
 import SignIn from './screens/SignIn';
 import SignUp from './screens/SignUp';
-import Group from './screens/Group';
+import Group from './screens/Group.js';
+import GroupList from './screens/GroupList.js';
+import CreateGroup from './screens/CreateGroup.js';
 import Individual from './screens/Individual';
 import Favourites from './screens/Favourites';
 import Profile from './screens/Profile';
@@ -21,8 +23,16 @@ const router = createBrowserRouter([
         element: <SignUp />
     },
     {
-        path: '/group',
+        path: '/group/:groupId',
         element: <Group />
+    },
+    {
+        path: '/groupList',
+        element: <GroupList />
+    },
+    {
+        path: '/createGroup',
+        element: <CreateGroup />
     },
     {
         path: '/individual',
