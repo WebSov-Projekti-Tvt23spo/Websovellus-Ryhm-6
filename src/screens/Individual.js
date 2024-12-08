@@ -21,7 +21,7 @@ function Individual() {
         )
     }
     useEffect(() => {
-        fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&region=Finland' + page,{
+        fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=' + page,{
             headers: {
                 "Authorization": "",
                 "Content-Type":"application/json"
