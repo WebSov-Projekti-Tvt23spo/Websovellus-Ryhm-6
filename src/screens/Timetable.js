@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import templateImage from './assets/template_image.jpg';
-import './Timetable.css';
+import '../styles/Timetable.css';
 
 function Timetable() {
     return (

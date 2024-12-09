@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation } from 'react-router-dom';
-import Searchbar from '../searchbar/Searchbar';
+import Searchbar from '../searchbar/searchbar';
 
 export default function Header() {
     const [user, setUser] = useState('*insert name*');

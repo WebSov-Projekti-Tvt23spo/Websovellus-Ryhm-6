@@ -86,13 +86,24 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Group`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Group` (
-  `idGroup` INT NOT NULL,
-  `GroupName` VARCHAR(45) NOT NULL,
-  `owner` VARCHAR(45) NULL,
-  PRIMARY KEY (`idGroup`, `GroupName`))
+create table if not exists `mydb`."group" (
+	`id` serial primary key,
+	`groupName` varchar(255) not null,
+	`groupDescription` varchar(255),
+  `groupImage` text,
+	`owner` varchar(255) not null)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `mydb`.`messages`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `mydb`."messages" (
+	`id` serial primary key,
+	`group_id` int references "group"(id),
+	`username` varchar(255) not null,
+	`text` text not null,
+	`timestamp` timestamp default current_timestamp)
+  ENGINE = InnoDB;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`GroupMembers`

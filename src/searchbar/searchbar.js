@@ -9,7 +9,7 @@ const Searchbar = () => {
     const handleSearch = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.get("http://localhost:3000/api/searchbar", {
+            const response = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&region=Finland", {
                 params: {query, site},
             });
             setResults(response.data);
@@ -26,7 +26,7 @@ const Searchbar = () => {
                 placeholder="Search"
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                />
+                /><button on Click={handleSearch} type="button">Search</button>
             </form>
             <ul>
                 {results.map((item, index) => (

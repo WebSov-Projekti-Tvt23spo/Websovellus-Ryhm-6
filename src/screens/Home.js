@@ -1,6 +1,6 @@
 import Header from "../components/Header";
 import templateImage from './assets/template_image.jpg';
-import './Home.css';
+import '../styles/Home.css';
 
 function Home() {
     return (
@@ -44,7 +44,7 @@ function Home() {
                 </div>
                 <div className='thirdColumn'>
                     <figure>
-                        <a href='./group'>Your group</a>
+                        <a href='./groupList'>Your groups</a>
                         <img src={templateImage}/>
                     </figure>
                 </div>
