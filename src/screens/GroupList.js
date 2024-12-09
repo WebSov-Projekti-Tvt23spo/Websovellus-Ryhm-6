@@ -30,11 +30,11 @@ function GroupList() {
                 <h1>Your groups</h1>
                 <div className='groupContainer'>
                     {groups.map(group => (
-                        <div key={group.id} className='groupItem'>
-                            <img src={group.groupimage} alt={`${group.name} icon`} />
-                            <h2>{group.groupname}</h2>
-                            <p>{group.groupdescription}</p>
-                            <Link to={`/group/${group.id}`}>Join group chat</Link>
+                        <div key={group.idGroup} className='groupItem'>
+                            <img src={group.groupImage} alt={`${group.groupName} icon`} />
+                            <h2>{group.groupName}</h2>
+                            <p>{group.groupDescription}</p>
+                            <Link to={`/group/${group.idGroup}`}>Join group chat</Link>
                         </div>
                     ))}
                 </div>

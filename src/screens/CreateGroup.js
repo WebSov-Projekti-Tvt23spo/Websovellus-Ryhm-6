@@ -42,14 +42,15 @@ function CreateGroup() {
     }
 
     const handleSubmit = (e) => {
-
-        e.preventDefault()
-        axios.post(url + '/createGroups', {
+        const headers = {headers: {'Content-Type':'application/json'}};
+        
+        e.preventDefault();
+        axios.post(url + '/group/createGroups', { 
             groupName,
             groupDescription,
             groupImage,
             owner: 'testUser'
-        })
+        }, headers)
         .then(response => {
             const groupId = response.data.id
             console.log('Group created:', response.data)
