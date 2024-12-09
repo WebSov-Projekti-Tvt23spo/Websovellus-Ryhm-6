@@ -1,36 +1,61 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const Searchbar = () => {
     const [query, setQuery] = useState("");
-    const [site, setSite] = useState("");
     const [results, setResults] = useState([]);
 
-    const handleSearch = async (e) => {
-        e.preventDefault();
+    const fetchResults = async () => {
+        if (!query.trim()) {
+            setResults([]);
+            return;
+        }
+
         try {
-            const response = await axios.get("https://api.themoviedb.org/3/movie/now_playing?language=en-US&region=Finland", {
-                params: {query, site},
-            });
-            setResults(response.data);
+            const response = await axios.get(
+                "https://api.themoviedb.org/3/search/movie",
+                {
+                    params: {
+                        query,
+                        language: "en-US",
+                        region: "FI",
+                        api_key: "Api key"
+                    },
+                }
+            );
+            setResults(response.data.results || []);
         } catch (error) {
             console.error("Error getting search results:", error);
         }
     };
 
-    return(
+    const handleSearch = (e) => {
+        e.preventDefault();
+        fetchResults();
+    };
+
+    useEffect(() => {
+        const delayDebounce = setTimeout(() => {
+            fetchResults();
+        }, 500);
+
+        return () => clearTimeout(delayDebounce);
+    }, [query]);
+
+    return (
         <div id="searchbar">
             <form onSubmit={handleSearch}>
                 <input
-                type="text"
-                placeholder="Search"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                /><button on Click={handleSearch} type="button">Search</button>
+                    type="text"
+                    placeholder="Search"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                />
+                <button type="submit">Search</button>
             </form>
             <ul>
                 {results.map((item, index) => (
-                    <li key={index}>{item.name}</li>
+                    <li key={index}>{item.title || item.name}</li>
                 ))}
             </ul>
         </div>
