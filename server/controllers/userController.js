@@ -15,7 +15,8 @@ const postRegistration = async (req,res,next) => {
         return res.status(201).json({
             userId: user.userId,
             username: user.username,
-            email: user.email
+            email: user.email,
+            Favourites_list_listId: user.Favourites_list_listId
         });
     } catch (error) {
         return next(error);
