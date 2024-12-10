@@ -6,8 +6,14 @@ const fetchGroups = async (req, res) => {
 
         const updatedGroups = groups.map(group => { // go through all groups
             if (group.groupImage) { // if row contains an image
-                const base64Image = `data:image/jpeg;base64,${group.groupImage.toString('base64')}`; // change image to base64 type
-                return { ...group, groupImage: base64Image }; // update image for the group
+                const groupImageData = group.groupImage.toString('hex', 0, 4).toUpperCase(); // getting metadata from image
+                if (groupImageData.startsWith('FFD8')) { // Is JPG image file
+                    const base64Image = `data:image/jpeg;base64,${group.groupImage.toString('base64')}`; // change image to base64 type
+                    return { ...group, groupImage: base64Image }; // update image for the group
+                } else if (groupImageData.includes('89504E47')) { // Is PNG image file
+                    const base64Image = `data:image/png;base64,${group.groupImage.toString('base64')}`; // change image to base64 type
+                    return { ...group, groupImage: base64Image }; // update image for the group
+                }
             }
             return group; // if groupImage is not defined, return group data as is
         });
@@ -24,10 +30,16 @@ const fetchGroup = async(req, res) => {
     const { groupId } = req.params;
     try {
         const group = await getGroup(groupId);
-
+        
         if (group.groupImage) { // if image exists
-            const base64Image = `data:image/jpeg;base64,${group.groupImage.toString('base64')}`; // change image to base64 type
-            group.groupImage = base64Image; // update image for the group
+            const groupImageData = group.groupImage.toString('hex', 0, 4).toUpperCase(); // getting metadata from image
+            if (groupImageData.startsWith('FFD8')) { // Is JPEG image file
+                const base64Image = `data:image/jpeg;base64,${group.groupImage.toString('base64')}`; // change image to base64 type
+                group.groupImage = base64Image; // update image for the group
+            } else if (groupImageData.startsWith('89504E47')) { // Is PNG image file
+                const base64Image = `data:image/png;base64,${group.groupImage.toString('base64')}`; // change image to base64 type
+                group.groupImage = base64Image; // update image for the group
+            }
         }
 
         return res.status(200).json(group)
