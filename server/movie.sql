@@ -11,8 +11,10 @@ CREATE TABLE IF NOT EXISTS "mydb"."Favourites_list" (
 
 CREATE TABLE IF NOT EXISTS "mydb"."User" (
   "userId" SERIAL NOT NULL,
-  "username" VARCHAR(45) NULL,
-  "Favourites_list_listId" INT NOT NULL,
+  "username" VARCHAR(45) NOT NULL,
+  "email" VARCHAR(45) NOT NULL,
+  "password" VARCHAR(255) NOT NULL,
+  "Favourites_list_listId" SERIAL NOT NULL,
   PRIMARY KEY ("userId", "Favourites_list_listId"),
   CONSTRAINT "idUser_UNIQUE" UNIQUE ("userId"),
   CONSTRAINT "Usercol_UNIQUE" UNIQUE ("username"),
