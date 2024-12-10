@@ -13,7 +13,8 @@ const addMessage = async (req,res) => {
 
 const fetchMessages = async (req,res) => {
     try {
-        const messages = await getMessages()
+        const { groupId } = req.params
+        const messages = await getMessages(groupId)
         return res.status(200).json(messages)
     } catch (error) {
         return res.status(500).json({ error: error.message })

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import '../styles/GroupList.css'
 import Header from "../components/Header.js"
 
-const url = 'http://localhost:3001'
+const url = 'http://localhost:3001/group'
 
 function GroupList() {
     const [groups, setGroups] = useState([])
@@ -26,7 +26,7 @@ function GroupList() {
             <Header />
 
             <div className='myHeader'>
-                <a href='./createGroup'>Create a group</a>
+                <a href='/createGroup'>Create a group</a>
                 <h1>Your groups</h1>
                 <div className='groupContainer'>
                     {groups.map(group => (

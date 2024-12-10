@@ -7,7 +7,7 @@ import '../styles/Group.css';
 
 function Group() {
 
-    const url = 'http://localhost:3001'
+    const url = 'http://localhost:3001/group'
 
     const { groupId } = useParams()
     const [group, setGroup] = useState({})
@@ -24,8 +24,8 @@ function Group() {
             console.log('Group data:', response.data)
             const groupData = response.data
             setGroup(groupData)
-            setImage(groupData.groupimage)
-            setGroupName(groupData.groupname)
+            setImage(groupData.groupImage)
+            setGroupName(groupData.groupName)
         })
         .catch(error => {
             console.error('Error fetching group data:', error)
@@ -58,7 +58,7 @@ function Group() {
 
         axios.post(url + `/group/${groupId}/message`, newMessage)
             .then(response => {
-                setMessages([...messages, newMessage])
+                setMessages([...messages, response.data])
                 setCurrentMessage('')
             })
             .catch(error => {

@@ -10,7 +10,13 @@ export default function Header() {
     const renderHeaderByUrl = () => {
         if (url.pathname === '/') {
             return <h1>Welcome {user}</h1>;
-        } else {
+        }
+        // A convoluted way to check if the user is in a group page
+        // if yes, return them to groupList instead of /group which doesn't exist
+        else if (/^\/group\/\d+$/.test(url.pathname)){ 
+            return <a href='/groupList' >Return</a>
+        }
+        else {
             return <a href='./'>Return</a>;
         };
     };

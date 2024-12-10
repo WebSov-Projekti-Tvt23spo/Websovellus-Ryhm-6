@@ -60,6 +60,13 @@ CREATE TABLE IF NOT EXISTS "mydb"."Group" (
   CONSTRAINT "unique_idGroup" UNIQUE ("idGroup")
 );
 
+CREATE TABLE IF NOT EXISTS "mydb"."messages" (
+  id SERIAL PRIMARY KEY,
+  "group_id" INT REFERENCES "mydb"."Group"("idGroup"),
+  "username" VARCHAR(255) NOT NULL,
+  "text" TEXT NOT NULL,
+  timestamp TIMESTAMP DEFAULT current_timestamp
+);
 
 CREATE TABLE IF NOT EXISTS "mydb"."GroupMembers" (
   "idGroupMembers" SERIAL NOT NULL,
