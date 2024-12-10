@@ -19,7 +19,7 @@ function Group() {
     const [groupName, setGroupName] = useState('My group')
 
     useEffect(() => {
-        axios.get(url + `/group/${groupId}`)
+        axios.get(url + `/${groupId}`)
         .then(response => {
             console.log('Group data:', response.data)
             const groupData = response.data
@@ -33,7 +33,7 @@ function Group() {
     }, [groupId])
 
     useEffect(() => {
-        axios.get(url + `/group/${groupId}/messages`)
+        axios.get(url + `/${groupId}/messages`)
         .then(response => {
             setMessages(response.data)
         })
@@ -56,7 +56,7 @@ function Group() {
                 text: currentMessage
             }
 
-        axios.post(url + `/group/${groupId}/message`, newMessage)
+        axios.post(url + `/${groupId}/message`, newMessage)
             .then(response => {
                 setMessages([...messages, response.data])
                 setCurrentMessage('')

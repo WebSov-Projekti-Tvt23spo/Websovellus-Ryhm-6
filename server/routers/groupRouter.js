@@ -4,18 +4,15 @@ import { addMessage, fetchMessages } from '../controllers/messageController.js'
 
 const router = Router()
 
-// note that the routing for groups goes through
-// localhost:3001/group + then the routes below
-
-// confusion might arise from e.g. localhost:3001/group/group/:groupId
-// which is the current correct route... 
+// Routing now sensible,
+// base url is still localhost:3001/group, but unnecessary group prefixes cleaned up
 
 router.get('/getGroups', fetchGroups)
-router.get('/group/:groupId', fetchGroup)
+router.get('/:groupId', fetchGroup)
 router.post('/createGroups', addGroup)
 router.post('/deleteGroup/:id', removeGroup)
 
-router.post('/group/:groupId/message', addMessage)
-router.get('/group/:groupId/messages', fetchMessages)
+router.post('/:groupId/message', addMessage)
+router.get('/:groupId/messages', fetchMessages)
 
 export default router;
