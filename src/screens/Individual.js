@@ -10,20 +10,28 @@ function Individual() {
     const [movies, setMovies] = useState([])
     const [page, setPage] = useState(1)
     const [pageCount, setPageCount] = useState(0)
+    const [query, setQuery] = useState("");
+    const [selectedMovieImage, setSelectedMovieImage] = useState('');
 
     const Movies = () => {
         return (
             <table>
-            {movies && movies.map(movie =>(
-                <tr key={movie.id}><td>{movie.title}</td></tr>
-            ))}
+                {movies && movies.map(movie => (
+                    <tr key={movie.id} onClick={() => setSelectedMovieImage(`https://image.tmdb.org/t/p/w500${movie.poster_path}`)}>
+                        <td>{movie.title}</td>
+                        <td>
+
+                        </td>
+                    </tr>
+                ))}
             </table>
         )
     }
-    useEffect(() => {
-        fetch('https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=' + page,{
+
+    const search = () => {
+        fetch('https://api.themoviedb.org/3/search/movie?query=' + query + '%20wars&include_adult=false&language=en-US&page=' + page,{
             headers: {
-                "Authorization": "",
+                "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzNGRiNGY4NDVhZTFmNTg2MGY3ZTRiY2U5NmIyMjJkMSIsIm5iZiI6MTczMzk0NjEwMi4xNTI5OTk5LCJzdWIiOiI2NzU5ZWFmNjVmNGQzYWEzYzc0Y2MwYTMiLCJzY29wZXMiOlsiYXBpX3JlYWQiXSwidmVyc2lvbiI6MX0.szwvqguHDlsZG6Z_GpKCPkENdJmYWBQaRxUmRMbedIw",
                 "Content-Type":"application/json"
             }
             }).then(response => response.json())
@@ -34,6 +42,10 @@ function Individual() {
             .catch(error => {
                 console.log(error)
             })
+    }
+
+    useEffect(() => {
+        search()
     }, [page])
 
     return (
@@ -42,30 +54,28 @@ function Individual() {
             <div className='mainContainer'>
                 <a href='./timetable'>Screening timetable</a>
                 <h1>
-                <Movies />
+                Movies
                 </h1>
                 <figure> 
-                    <img src={templateImage}/>
+                <img src={selectedMovieImage || 'https://via.placeholder.com/500'} alt="Selected Movie" />
                 </figure>
                 <aside>
                     <p>
-                       
+                    <input value={query} onChange={e => setQuery(e.target.value)}></input><button onClick={search} type="button">Search</button>
                     </p>
                     <p>
-                       Lorem ipsum odor amet, consectetuer adipiscing elit. Dapibus class arcu egestas morbi, 
-                       faucibus dictum porta egestas. Lobortis finibus dictumst adipiscing nisl porttitor at 
-                       sit ut potenti. Cursus euismod sagittis volutpat ut volutpat aliquam. Mus penatibus 
-                       hendrerit orci ullamcorper eros dolor neque. Gravida egestas mus turpis integer quisque 
-                       commodo? Ullamcorper amet quis nunc id iaculis litora porta ipsum aptent. Litora porttitor 
-                       torquent a fermentum dignissim morbi magnis habitasse.
+                    <Movies />
                     </p>
                     <p>
-                       Lorem ipsum odor amet, consectetuer adipiscing elit. Dapibus class arcu egestas morbi, 
-                       faucibus dictum porta egestas. Lobortis finibus dictumst adipiscing nisl porttitor at 
-                       sit ut potenti. Cursus euismod sagittis volutpat ut volutpat aliquam. Mus penatibus 
-                       hendrerit orci ullamcorper eros dolor neque. Gravida egestas mus turpis integer quisque 
-                       commodo? Ullamcorper amet quis nunc id iaculis litora porta ipsum aptent. Litora porttitor 
-                       torquent a fermentum dignissim morbi magnis habitasse.
+                    <ReactPaginate
+        breakLabel="..."
+        nextLabel=">"
+        onPageChange={(e) => setPage(e.selected + 1)}
+        pageRangeDisplayed={5}
+        pageCount={pageCount}
+        previousLabel="<"
+        renderOnZeroPageCount={null}
+      />
                     </p>
                 </aside>
                 <form>
@@ -83,40 +93,17 @@ function Individual() {
                 </form>
                 <div id='bottomText'>
                     <p>
-                       Lorem ipsum odor amet, consectetuer adipiscing elit. Dapibus class arcu egestas morbi, 
-                       faucibus dictum porta egestas. Lobortis finibus dictumst adipiscing nisl porttitor at 
-                       sit ut potenti. Cursus euismod sagittis volutpat ut volutpat aliquam. Mus penatibus 
-                       hendrerit orci ullamcorper eros dolor neque. Gravida egestas mus turpis integer quisque 
-                       commodo? Ullamcorper amet quis nunc id iaculis litora porta ipsum aptent. Litora porttitor 
-                       torquent a fermentum dignissim morbi magnis habitasse.
+                        
                     </p>
                     <p>
-                       Lorem ipsum odor amet, consectetuer adipiscing elit. Dapibus class arcu egestas morbi, 
-                       faucibus dictum porta egestas. Lobortis finibus dictumst adipiscing nisl porttitor at 
-                       sit ut potenti. Cursus euismod sagittis volutpat ut volutpat aliquam. Mus penatibus 
-                       hendrerit orci ullamcorper eros dolor neque. Gravida egestas mus turpis integer quisque 
-                       commodo? Ullamcorper amet quis nunc id iaculis litora porta ipsum aptent. Litora porttitor 
-                       torquent a fermentum dignissim morbi magnis habitasse.
+                        
                     </p>
                     <p>
-                       Lorem ipsum odor amet, consectetuer adipiscing elit. Dapibus class arcu egestas morbi, 
-                       faucibus dictum porta egestas. Lobortis finibus dictumst adipiscing nisl porttitor at 
-                       sit ut potenti. Cursus euismod sagittis volutpat ut volutpat aliquam. Mus penatibus 
-                       hendrerit orci ullamcorper eros dolor neque. Gravida egestas mus turpis integer quisque 
-                       commodo? Ullamcorper amet quis nunc id iaculis litora porta ipsum aptent. Litora porttitor 
-                       torquent a fermentum dignissim morbi magnis habitasse.
+
                     </p>
                 </div>
             </div>
-            <ReactPaginate
-        breakLabel="..."
-        nextLabel=">"
-        onPageChange={(e) => setPage(e.selected + 1)}
-        pageRangeDisplayed={5}
-        pageCount={pageCount}
-        previousLabel="<"
-        renderOnZeroPageCount={null}
-      />
+           
         </div>
     );
 };

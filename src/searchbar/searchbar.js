@@ -19,7 +19,7 @@ const Searchbar = () => {
                         query,
                         language: "en-US",
                         region: "FI",
-                        api_key: "Api key"
+                        api_key: "34db4f84fae1f5860f7e4bce96b222d1"
                     },
                 }
             );
@@ -55,7 +55,7 @@ const Searchbar = () => {
             </form>
             <ul>
                 {results.map((item, index) => (
-                    <li key={index}>{item.title || item.name}</li>
+                    <li key={item.id || index}>{item.title || item.name}</li>
                 ))}
             </ul>
         </div>
