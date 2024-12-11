@@ -5,12 +5,12 @@ const insertUser = async (username,email,password) => {
                             [username,email,password]);
 }
 
-const selectUserByEmail = async (email) => {
-    return await pool.query('select * from "mydb"."User" where "email" = $1', [email]);
+const selectUserByUsername = async (username) => {
+    return await pool.query('select * from "mydb"."User" where "username" = $1', [username.trim()]);
 }
 
 const delUser = async (userId) => {
     return await pool.query('delete from "mydb"."User" where "userId" = $1', [userId]);
 }
 
-export { insertUser, selectUserByEmail, delUser };
+export { insertUser, selectUserByUsername, delUser };
