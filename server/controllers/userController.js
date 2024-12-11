@@ -1,4 +1,4 @@
-import { insertUser, delUser, selectUserByEmail } from "../models/user.js";
+import { insertUser, delUser, selectUserByUsername } from "../models/user.js";
 import { hash, compare } from 'bcrypt';
 import jwt from 'jsonwebtoken';
 
@@ -16,7 +16,6 @@ const postRegistration = async (req,res,next) => {
             userId: user.userId,
             username: user.username,
             email: user.email,
-            Favourites_list_listId: user.Favourites_list_listId
         });
     } catch (error) {
         return next(error);
@@ -25,16 +24,16 @@ const postRegistration = async (req,res,next) => {
 
 const postLogin = async (req,res,next) => {
     try {
-        const userFromDb = await selectUserByEmail(req.body.email); // getting existing user by given email
+        const userFromDb = await selectUserByUsername(req.body.username); // getting existing user by given username
         if(userFromDb.rowCount === 0) return next(new Error('Invalid credentials', 401));
         const user = userFromDb.rows[0]; // saving user's info from database
 
         // comparing the given password to the password from database
         if(!await compare(req.body.password, user.password)) 
-           return next(new Error('Invalid credentials', 401));
+           return next(new Error('Invalid crentials', 401));
 
         // creating a token based on the secret key in .env
-        const token = sign(req.body.email, process.env.JWT_SECRET_KEY);
+        const token = sign(req.body.username, process.env.JWT_SECRET_KEY);
 
         return res.status(200).json({
             userId: user.userId,
