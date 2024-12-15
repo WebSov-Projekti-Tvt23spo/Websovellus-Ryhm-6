@@ -1,11 +1,14 @@
-.signInPage .mainContainer {
+.signInPage {
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    color: aliceblue;
+    flex-direction: column; 
+    justify-content: center;  
+    align-items: center;
+    height: 100vh;
 }
 
+.mainContainer {
+    text-align: center;
+}
 .signInPage input {
     margin-bottom: 30px;
 }
