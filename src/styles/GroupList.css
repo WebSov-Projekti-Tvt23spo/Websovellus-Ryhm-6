@@ -27,3 +27,12 @@
     padding: 20px;
     align-items: right;
 }
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: aliceblue;
+}
+
+.figcaption {
+    color: white;
+}

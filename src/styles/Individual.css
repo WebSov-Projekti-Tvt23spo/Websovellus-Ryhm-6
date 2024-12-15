@@ -16,6 +16,8 @@
 
 .individualPage h1 {
     grid-area: h-area;
+    color: aliceblue;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .individualPage figure {
@@ -64,3 +66,78 @@
 .individualPage li.selected{
     color: blue;
 }
+
+.mainContainer {
+    width: 90%;
+    max-width: 900px;
+    padding: 20px;
+    text-align: center;
+}
+
+.mainContainer a {
+    display: inline-block;
+    text-decoration: none;
+    color: white; 
+    background: linear-gradient(90deg, #ff7e5f, #feb47b); 
+    padding: 5px 10px;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 126, 95, 0.5); 
+}
+
+.mainContainer a:hover {
+    transform: scale(1.1); 
+    box-shadow: 0 8px 20px rgba(255, 126, 95, 0.8); 
+}
+
+.mainContainer a:active {
+    transform: scale(0.95); 
+    box-shadow: 0 4px 10px rgba(255, 126, 95, 0.6);
+}
+
+
+button, input {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #ff4416;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #feb47b;
+}
+
+body{
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(-45deg, #000000, #9d2d8e,#3d0b36);
+    background-size: 400% 400%;
+    animation: bg 20s ease infinite;
+
+
+    
+}
+
+@keyframes bg{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 100%;
+    }
+    100%{
+        background-position: 0% 50%;
+    }
+}
+
